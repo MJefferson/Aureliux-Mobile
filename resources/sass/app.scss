@@ -1,6 +1,9 @@
 
 
-$base-color: #76C000;
+$base-color: lighten(#76C000, 10%);
+$toolbar-gradient: 'glossy';
+$tabs-bar-gradient: 'matte';
+
 
 @import 'sencha-touch/default/all';
 // You may remove any of the following modules that you
@@ -22,6 +25,17 @@ $base-color: #76C000;
 // Your custom code goes here...
 
 .lens-bar {
-  background-color: #161;
+  background-color: black;
   
+  .lens-button {
+    font-family: Naxos;
+    margin: 5px 10px;
+    color: white;
+  }
+}
+
+.x-toolbar-dark {
+  .x-title {
+    color: white;
+  }
 }

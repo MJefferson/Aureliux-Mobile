@@ -25,41 +25,44 @@ Ext.define('Aureliux.view.Generator', {
 	    {
 	    	docked: 'top',
 	    	xtype: 'toolbar',
-	    	
+	    	baseCls: 'lens-bar',
 	    	layout: {
 	    		pack: 'center'
 	    	},
+	    	defaults: {
+	    		baseCls: 'lens-button'
+	    	},
 	    	items: [
 	    	{
-	    		text: 'alpha',
+	    		text: 'a',
 	    		handler: function(){
     				setLens("alpha");
     				nextEntry();
 	    		}
 	    	},
 	    	{
-	    		text: 'beta',
+	    		text: 'b',
 	    		handler: function(){
 	    			setLens("beta");
 	    			nextEntry();
 	    		}
 	    	},
 	    	{
-	    		text: 'gamma',
+	    		text: 'g',
 	    		handler: function(){
 	    			setLens("gamma");
 	    			nextEntry();
 	    		}
 	    	},
 	    	{
-	    		text: 'delta',
+	    		text: 'd',
 	    		handler: function(){
 	    			setLens("delta");
 	    			nextEntry();
 	    		}
 	    	},
 	    	{
-	    		text: 'eps',
+	    		text: 'e',
 	    		handler: function(){
 	    			setLens("epsilon");
 	    			nextEntry();
@@ -70,7 +73,7 @@ Ext.define('Aureliux.view.Generator', {
 	    ],
 	
 	    html: [
-	        "<div id='phrase-container' style='width: 250px; height: 250px; background-color: #333; padding: 10px; margin: 0 auto; border: 1px solid #333;'><h2 id='phrase' style='font-size: 1em'>freeze out the moroccan dirham</h2></div>"
+	        "<div id='phrase-container' style='width: 250px; height: 250px; background-color: white; padding: 10px; margin: 0 auto; border: 1px solid #FFF;'><h2 id='phrase' style='font-size: 1em'>freeze out the moroccan dirham</h2></div>"
 	    ].join("")
    }
 });

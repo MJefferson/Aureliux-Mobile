@@ -6,7 +6,7 @@ Ext.define("Aureliux.view.Main", {
     ],
     config: {
         tabBarPosition: 'bottom',
-
+		ui: 'neutral',
         items: [
         	{
         		xtype: 'generator'
@@ -42,8 +42,7 @@ Ext.define("Aureliux.view.Main", {
 			            pullRefreshText: 'Pull down to refresh'
 			        },
 			        {
-			            xclass: 'Ext.plugin.ListPaging',
-			            autoPaging: true
+			            xclass: 'Ext.plugin.ListPaging'
 			        }
 			    ]
             }
