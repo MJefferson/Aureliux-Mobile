@@ -6,7 +6,7 @@ Ext.define("Aureliux.view.Main", {
     ],
     config: {
         tabBarPosition: 'bottom',
-		ui: 'neutral',
+		ui: 'lens-bar',
         items: [
         	{
         		xtype: 'generator'

@@ -25,7 +25,7 @@ $tabs-bar-gradient: 'matte';
 // Your custom code goes here...
 
 .lens-bar {
-  background-color: black;
+  background-color: #333;
   
   .lens-button {
     font-family: Naxos;
@@ -39,3 +39,5 @@ $tabs-bar-gradient: 'matte';
     color: white;
   }
 }
+
+@include sencha-tabbar-ui('lens-bar', #333, 'matte', #FFF);
