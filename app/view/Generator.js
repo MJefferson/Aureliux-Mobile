@@ -70,7 +70,7 @@ Ext.define('Aureliux.view.Generator', {
 	    ],
 	
 	    html: [
-	        "<div id='phrase-container' style='width: 250px; height: 250px; background-color: #333; padding: 10px; margin: 0 auto; border: 1px solid white;'><h2 id='phrase' style='font-size: 1em'>freeze out the moroccan dirham</h2></div>"
+	        "<div id='phrase-container' style='width: 250px; height: 250px; background-color: #333; padding: 10px; margin: 0 auto; border: 1px solid #CCC;'><h2 id='phrase' style='font-size: 1em'>freeze out the moroccan dirham</h2></div>"
 	    ].join("")
    }
 });
