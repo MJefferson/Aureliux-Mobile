@@ -1,7 +1,7 @@
 Ext.application({
     models: ["Fragment", "Instance"],
 	controllers: ["Generator"],
-	stores: ["AlphaFragment", "BetaFragment", "GammaFragment", "DeltaFragment", "EpsilonFragment", "Instances"],
+	stores: ["AlphaFragment", "BetaFragment", "GammaFragment", "DeltaFragment", "EpsilonFragment"],
     name: 'Aureliux',
 
     requires: [
@@ -94,11 +94,13 @@ function previousEntry(){
 		var previous = timeline[position-1];
 		meta = previous;
 		Ext.fly('phrase').setHtml(previous.phrase);
+		scaleText();
 	} else if (position == -1 ){
 		var previous = timeline[timeline.length-1];
 		addToHistory(meta);
 		meta = previous;
 		Ext.fly('phrase').setHtml(previous.phrase);
+		scaleText();
 	} else if (position == 0) {
 		return false;
 	} else {
@@ -115,7 +117,7 @@ function nextEntry(){
 		var next = timeline[position+1];
 		Ext.fly('phrase').setHtml(next.phrase);
 		meta = next;
-		
+		scaleText();
 	} else {
 		newFragment();
 	}
@@ -126,4 +128,38 @@ function onFragmentLoad(store, data, opts){
 	meta = store.getAt(0).raw;
 	addToHistory(meta);
 	Ext.fly('phrase').setHtml(store.getAt(0).get('phrase'));
+	scaleText();
+}
+
+function saveInstance(){
+	Ext.util.JSONP.request({
+		url: 'http://philolobot.com:3005/instances.jsonp',
+		params: {
+			uid: meta.uid,
+			phrase: meta.phrase,
+			lens: lens
+		},
+		success: function(resp){
+			Ext.data.StoreManager.lookup('instanceStore').load();
+		}
+	});
+}
+
+function scaleText(){
+	var container = Ext.DomQuery.select('#phrase-container')[0];
+	var containerWidth = parseFloat(container.style.width, 10) - 20; //10 is padding
+	console.log(containerWidth);
+	var fragment = Ext.DomQuery.select('#phrase')[0];
+	fragment.style.fontSize = "1em";
+	var fontSize = parseFloat(fragment.style.fontSize, 10);
+	var overflowH=fragment.scrollHeight, overflowW=fragment.scrollWidth;
+	
+
+    for(var size=fontSize; overflowH < containerWidth && overflowW < containerWidth; size+= .2){
+    	fragment.style.fontSize = size + "em";
+        overflowH = fragment.scrollHeight;
+        overflowW = fragment.scrollWidth;
+    }
+    
+    fragment.style.fontSize = parseFloat(fragment.style.fontSize, 10) - .2 + "em";
 }

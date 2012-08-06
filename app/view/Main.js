@@ -17,6 +17,7 @@ Ext.define("Aureliux.view.Main", {
 				xtype: 'list',
                 store: {
 		        	model: 'Aureliux.model.Instance',
+		        	id: 'instanceStore',
 			        proxy: {
 			            type: 'jsonp',
 			            url : 'http://philolobot.com:3005/instances.json',
